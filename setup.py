@@ -1,12 +1,12 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open('README.md') as file:
     long_description = file.read()
 
 setup(
     name='django-handy-utils',
-    version='1.0.0',
-    packages=['django_handy_utils'],
+    version='1.0.1',
+    packages=find_packages(),
     url='https://github.com/mfdeux/django-handy-utils',
     license='MIT',
     author='Marc Ford',
