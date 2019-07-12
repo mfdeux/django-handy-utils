@@ -17,4 +17,4 @@ TO COME
 
 All contributors are welcome.
 
-[![Contributors welcome](https://www.mfdx.link/badges/open-to-contributors.png)](https://github.com/mfdeux/)
+<img src="https://www.mfdx.link/badges/open-to-contributors.png" alt="Contributors welcome"/>
