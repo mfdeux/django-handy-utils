@@ -140,3 +140,6 @@ dmypy.json
 
 
 .idea/
+
+make_package.sh
+publish_package.sh

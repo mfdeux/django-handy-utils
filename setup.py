@@ -5,7 +5,7 @@ with open('README.md') as file:
 
 setup(
     name='django-handy-utils',
-    version='1.0.1',
+    version='1.0.3',
     packages=find_packages(),
     url='https://github.com/mfdeux/django-handy-utils',
     license='MIT',
