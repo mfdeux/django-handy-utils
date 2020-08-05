@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "django-handy-utils"
+version = "1.1.0"
+description = "Handy utilities for working on Django projects"
+authors = ["Marc Ford <mrfxyz567@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/mfdeux/django-handy-utils"
+packages = [{ include = "django_handy_utils" }]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Django = ">=2"
+djangorestframework = ">=3"
+
+[tool.poetry.dev-dependencies]
+black = "^19.10b0"
+isort = "^5.3.0"
+pytest = "^6.0.1"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

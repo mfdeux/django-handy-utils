@@ -1,5 +1,6 @@
-from rest_framework import permissions
 from django.core.exceptions import PermissionDenied
+from rest_framework import permissions
+
 
 def permission_checker(perm):
     def wrapped_decorator(func):
@@ -19,6 +20,7 @@ def permission_checker(perm):
 
     return wrapped_decorator
 
+
 class IsOwnerOrReadOnly(permissions.BasePermission):
     """
     Object-level permission to only allow owners of an object to edit it.
@@ -36,16 +38,17 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
 
 
 class BaseModelPermissions(permissions.DjangoModelPermissions):
-
     def get_custom_perms(self, method, view):
         app_name = view.model._meta.app_label
-        return [app_name + "." + perms for perms in view.extra_perms_map.get(method, [])]
+        return [
+            app_name + "." + perms for perms in view.extra_perms_map.get(method, [])
+        ]
 
     def has_permission(self, request, view):
         perms = self.get_required_permissions(request.method, view.model)
         perms.extend(self.get_custom_perms(request.method, view))
         return (
-                request.user and
-                (request.user.is_authenticated() or not self.authenticated_users_only) and
-                request.user.has_perms(perms)
+            request.user
+            and (request.user.is_authenticated() or not self.authenticated_users_only)
+            and request.user.has_perms(perms)
         )

@@ -1,18 +1,26 @@
 import json
+
 from django.http import HttpResponse
 from rest_framework import status
 from rest_framework.views import exception_handler
 
 
 def error_404_view(request, exception=None):
-    response = {'status_code': 404, 'error': 'The resource was not found'}
-    return HttpResponse(json.dumps(response), content_type='application/json', status=status.HTTP_404_NOT_FOUND)
+    response = {"status_code": 404, "error": "The resource was not found"}
+    return HttpResponse(
+        json.dumps(response),
+        content_type="application/json",
+        status=status.HTTP_404_NOT_FOUND,
+    )
 
 
 def error_500_view(request, exception=None):
-    response = {'status_code': 500, 'error': 'Internal server error'}
-    return HttpResponse(json.dumps(response), content_type='application/json',
-                        status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    response = {"status_code": 500, "error": "Internal server error"}
+    return HttpResponse(
+        json.dumps(response),
+        content_type="application/json",
+        status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+    )
 
 
 def custom_exception_handler(exc, context):
@@ -22,7 +30,7 @@ def custom_exception_handler(exc, context):
 
     if response is not None:
         # check if exception has dict items
-        if hasattr(exc.detail, 'items'):
+        if hasattr(exc.detail, "items"):
             # remove the initial value
             response.data = {}
             errors = []
@@ -31,9 +39,9 @@ def custom_exception_handler(exc, context):
                 errors.append("{} : {}".format(key, " ".join(value)))
 
             # add property errors to the response
-            response.data['errors'] = errors
+            response.data["errors"] = errors
 
         # serve status code in the response
-        response.data['status_code'] = response.status_code
+        response.data["status_code"] = response.status_code
 
     return response

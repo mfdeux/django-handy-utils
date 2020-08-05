@@ -5,7 +5,7 @@
 ## Installation
 
 ```shell
-pip install django-handy-utils
+pip install django-handy-utils --upgrade
 ```
 
 ## Usage in Django
@@ -16,5 +16,3 @@ TO COME
 ## Contributors
 
 All contributors are welcome.
-
-<img src="https://www.mfdx.link/badges/open-to-contributors.png" alt="Contributors welcome"/>
