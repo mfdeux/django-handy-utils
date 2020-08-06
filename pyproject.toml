@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-handy-utils"
-version = "1.1.1"
+version = "1.1.2"
 description = "Handy utilities for working on Django projects"
 authors = ["Marc Ford <mrfxyz567@gmail.com>"]
 license = "MIT"
